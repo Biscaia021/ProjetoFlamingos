@@ -1,0 +1,9 @@
+.organizador_campos {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.organizador_campos input:hover {
+  cursor: default;
+}

@@ -1,0 +1,25 @@
+@media (max-width: 745px) {
+  /* .container-cadastro, .container-consulta, .container-menu {
+    max-width: 400px;
+  } */
+
+  .menu__item {
+    width: 170px;
+  }
+
+  .item-image {
+    width: 100px;
+  }
+}
+
+@media (max-width: 490px){
+  .menu__item {
+    flex-direction: row;
+    gap: 3rem;
+    height: 100px;
+  }
+
+  .item-image {
+    width: 50px;
+  }
+}

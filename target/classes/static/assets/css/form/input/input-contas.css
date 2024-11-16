@@ -1,0 +1,5 @@
+.input-contas {
+  height: 250px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,13 @@
+.form__input {
+  width: 100%;
+  border: 2px solid #ccc;
+  padding: 0.7rem 1rem;
+  border-radius: 1rem;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s;
+}
+
+.form__input:hover {
+  border: 2px solid #1d649a;
+}

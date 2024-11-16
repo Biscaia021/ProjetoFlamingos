@@ -1,0 +1,13 @@
+.pagina {
+  background-image: url(../../imagens/background-poligono.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 2rem;
+  animation: rotate 6s infinite alternate linear;
+}
+
+@keyframes rotate {
+  0% {
+    background-position: 0% 50%;
+  }
+}

@@ -1,0 +1,10 @@
+.campo {
+  background-color: #edf2f7;
+  box-shadow: 0px 1px 0px 0px rgba(102, 126, 234, 0.5);
+  display: flex;
+  gap: 0.5em;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+/* box-shadow: 0px 2px 0px 0px rgb(243 0 58 / 50%); */

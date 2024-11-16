@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="fundo" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login GESCON</title>
+
+    <link rel="preconnect"th:href="@{https://fonts.googleapis.com}" />
+    <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin />
+    <link th:href="@{https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap}" rel="stylesheet" />
+
+    <link rel="stylesheet" th:href="@{/login/css/fundo.css}" />
+
+    <link rel="stylesheet" th:href="@{/login/css/pagina.css}" />
+
+    <link rel="stylesheet" th:href="@{/login/css/titulo-principal.css}"/>
+
+    <link rel="stylesheet" th:href="@{/login/css/formulario.css}"/>
+    <link rel="stylesheet" th:href="@{/login/css/imagem.css}"/>
+    <link rel="stylesheet" th:href="@{/login/css/titulo.css}"/>
+    <link rel="stylesheet" th:href="@{/login/css/subtitulo.css}"/>
+    <link rel="stylesheet" th:href="@{/login/css/formulario/botao-submit.css}"/>
+    <link rel="stylesheet" th:href="@{/login/css/esqueci.css}"/>
+    <link rel="stylesheet" th:href="@{/login/css/formulario/registrar.css}" />
+
+    <link rel="stylesheet" th:href="@{/login/css/organizador-campos.css}"/>
+
+    <link rel="stylesheet" th:href="@{/login/css/campo.css}"/>
+    <link rel="stylesheet" th:href="@{/login/css/label-senha.css}"/>
+    <link rel="stylesheet" th:href="@{/login/css/label-usuario.css}"/>
+
+    <link rel="stylesheet" th:href="@{/login/css/auxiliar.css}"/>
+
+    <link rel="stylesheet" th:href="@{/login/css/style.css}"/>
+  </head>
+  <body class="pagina">
+    <h1 class="titulo_principal">Página de login do GESCON</h1>
+    <form action="/login" method="post" th:object="${LoginRequisicao}" class="formulario" id="formulario">
+      <div class="imagem__formulario" aria-disabled="true"></div>
+      <h2 class="titulo__formulario">GESCON</h2>
+      <h3 class="subtitulo__formulario">Entre na sua conta</h3>
+      <div class="organizador_campos">
+        <label for="usuario" class="campo" id="label_usuario">
+          <div class="label_usuario__campo"></div>
+          <div id="erro">
+            <input type="text" name="login" id="usuario" placeholder="Usuário" /></div
+        ></label>
+
+        <label for="senha" class="campo" id="label_senha">
+          <div class="label_senha__campo"></div>
+          <div id="erro">
+            <input type="password" name="password" id="senha" placeholder="Senha" /></div
+        ></label>
+      </div>
+      <!-- <input type="submit" value="ENTRAR" class="botao_submit__formulario" id="botao_submit" /> -->
+      <button type="submit" class="botao_submit__formulario" id="botao_submit">ENTRAR</button>
+      <a th:href="@{/registro}" class="registrar__formulario">Registrar uma nova conta</a>
+    </form>
+  </body>
+</html>

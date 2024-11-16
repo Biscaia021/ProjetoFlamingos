@@ -1,0 +1,18 @@
+.botao_submit__formulario {
+  background-color: #667eea;
+  color: #fff;
+  cursor: pointer;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 1em;
+  padding: 0.7em;
+  width: 100%;
+}
+
+.botao_submit__formulario:hover {
+  transition: all ease-in 0.1s;
+  filter: brightness(1.1);
+}

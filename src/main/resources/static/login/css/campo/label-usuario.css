@@ -1,0 +1,6 @@
+.label_usuario__campo {
+  width: 1em;
+  background-image: url(../../img/usuario.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}

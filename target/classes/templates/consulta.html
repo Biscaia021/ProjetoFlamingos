@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br"  xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" th:href="@{assets/css/reset.css}">
+
+  <link rel="stylesheet" th:href="@{assets/css/pagina/layout-pagina.css}">
+  <link rel="stylesheet" th:href="@{assets/css/background/background-poligono.css}">
+  
+  <link rel="stylesheet" th:href="@{assets/css/container/container-cadastro-consulta.css}">
+  <link rel="stylesheet" th:href="@{assets/css/container/cabecalho/cabecalho.css}">
+  <link rel="stylesheet" th:href="@{assets/css/container/cabecalho/cabecalho__titulo.css}">
+  <link rel="stylesheet" th:href="@{assets/css/container/cabecalho/cabecalho__subtitulo.css}">
+  <link rel="stylesheet" th:href="@{assets/css/container/cabecalho/cabecalho__tipo-form.css}">
+  <link rel="stylesheet" th:href="@{assets/css/form/layout-form.css}">
+  <link rel="stylesheet" th:href="@{assets/css/form/link-menu.css}">
+  <link rel="stylesheet" th:href="@{assets/css/form/input/input.css}">
+  <link rel="stylesheet" th:href="@{assets/css/form/input/submit-btn.css}">
+
+  <link rel="stylesheet" th:href="@{assets/css/resultado/container-resultado.css}">
+  <link rel="stylesheet" th:href="@{assets/css/resultado/resultado__titulo.css}">
+  <link rel="stylesheet" th:href="@{assets/css/resultado/resultado__info.css}">
+  <link rel="stylesheet" th:href="@{assets/css/resultado/resultado__opcoes.css}">
+
+  <link rel="stylesheet" th:href="@{assets/css/auxiliar.css}">
+  <link rel="stylesheet" th:href="@{assets/css/media_queries.css}">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta</title>
+</head>
+<body class="pagina">
+  <div class="container-consulta">
+    <!-- Cabecalho -->
+    <header class="cabecalho">
+      <h1 class="cabecalho__titulo">Administração</h1>
+      <h3 class="cabecalho__subtitulo">Oque vamos consultar?</h3>
+      <fieldset class="cabecalho__tipo-form">
+        <label for="pessoas" class="radio-label">
+          <input type="radio" name="tipo-consulta" id="pessoas" checked> Pessoas
+        </label>
+        <label for="alocacoes" class="radio-label">
+          <input type="radio" name="tipo-consulta" id="alocacoes"> Alocações
+        </label>
+        <!-- <label for="contas" class="radio-label">
+          <input type="radio" name="tipo-consulta" id="contas"> Contas
+        </label> -->
+      </fieldset>
+    </header>
+    
+    <!-- ========================================================================================================= -->
+    
+    <!-- Consulta de Pessoas -->
+    <form th:action="@{/buscarMorador}" method="post" class="form form-pessoas">
+      <fieldset>
+        <input type="text"  name="id" id="id"  class="form__input" placeholder="ID Pessoa" required>
+        <button type="submit" class="form__submit-btn">Consultar</button>
+         <br>
+  		 <br>
+      </fieldset>
+    </form>
+
+    <!-- Resultado Pessoas -->
+    <div class="container-resultado" id="resultado-pessoas" >
+      <div class="resultado" th:each="morador : ${moradores}">
+		 <h1 class="cabecalho__titulo">Resultado<h1>
+        <p class="info-label">
+          Nome: <span class="resultado__info" th:text="${morador.nome}" id="nome"></span>
+        </p>
+        <p class="info-label">
+          CPF: <span class="resultado__info" th:text="${morador.cpf}" id="cpf"></span>
+        </p>
+        <p class="info-label">
+          Email: <span class="resultado__info" th:text="${morador.email}" id="email"></span>
+        </p>
+        <p class="info-label">
+          Telefone: <span class="resultado__info" th:text="${morador.telefone}" id="telefone"></span>
+        </p>
+        <p class="info-label">
+          Data Início: <span class="resultado__info" th:text="${morador.inicio}" id="inicio"></span>
+        </p>
+        <p class="info-label">
+          Data Fim: <span class="resultado__info" th:text="${morador.termino}" id="termino"></span>
+        </p>
+      </div>
+      <!-- <div th:if="${apartamento == null}">
+		  <h1>Dado não encontrado </h1>
+    </div>-->
+    </div>
+    <!-- Consulta de Alocações -->
+    <form  th:action="@{/buscarAloc}" method="post" class="form form-alocacoes hidden">
+      <fieldset>
+        <input type="number" name="id" id="idAloc" class="form__input" placeholder="ID Alocação" required>
+        <button type="submit" class="form__submit-btn">Consultar</button>
+         <br>
+  		<br>
+      </fieldset>
+    </form>
+
+    <!-- Resultado Alocações -->
+    <div class="container-resultado" id="resultado-alocacoes">
+      <div class="resultado" th:each="apartamento : ${apartamentos}">
+		 <h1 class="cabecalho__titulo">Resultado<h1>
+        <p class="info-label">
+          Proprietário: <span class="resultado__info" th:text="${apartamento.proprietario}" id="proprietario">Fulano da Silva Ribeiro</span>
+        </p>
+        <p class="info-label">
+          Bloco: <span class="resultado__info" th:text="${apartamento.bloco}" id="bloco">99</span>
+        </p>
+        <p class="info-label">
+          Apartamento: <span class="resultado__info" th:text="${apartamento.apartamento}" id="apartamento">202</span>
+        </p>
+      </div>
+     <!-- <div th:if="${apartamento == null}">
+		  <h1>Dado não encontrado </h1>
+    </div>-->
+  </div>
+  <br>
+  <br>
+   <a href="/menu" class="link-menu">Voltar ao menu</a>
+  <script type="text/javascript" th:src="@{/consulta/consulta.js}"></script>
+</body>
+</html>

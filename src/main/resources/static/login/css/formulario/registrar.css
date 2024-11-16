@@ -1,0 +1,20 @@
+.registrar__formulario {
+  border: 1px solid #4a5568;
+  box-sizing: border-box;
+  color: #4a5568;
+  font-family: Roboto;
+
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  display: block;
+  padding: 0.7em;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+}
+
+.botao_submit__formulario:hover {
+  transition: all ease-in 0.1s;
+  filter: brightness(1.1);
+}

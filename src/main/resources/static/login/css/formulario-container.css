@@ -1,0 +1,8 @@
+.formulario_container {
+  margin-left: 6%;
+  color: gray;
+  font-family: "Courier New", Courier, monospace;
+  position: relative;
+  display: inline-block;
+  transform: translateY(-200px);
+}

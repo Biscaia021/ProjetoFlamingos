@@ -1,0 +1,20 @@
+.form__submit-btn {
+  width: 80%;
+  padding: 1rem 1rem;
+  background-color: #1d649a;
+  border: 2px solid #ccc;
+  border-radius: 1rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.form__submit-btn:hover {
+  border: 2px solid #1d649a;
+  background-color: #fff;
+  color: #1d649a;
+}       

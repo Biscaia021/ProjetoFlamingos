@@ -1,0 +1,6 @@
+.label_senha__campo {
+  width: 1em;
+  background-image: url(../../img/senha.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}

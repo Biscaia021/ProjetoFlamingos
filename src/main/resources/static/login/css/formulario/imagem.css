@@ -1,0 +1,8 @@
+.imagem__formulario {
+  background-image: url(../../img/login.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50px;
+  margin-bottom: 1em;
+  width: 73px;
+}

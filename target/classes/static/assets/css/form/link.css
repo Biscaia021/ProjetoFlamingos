@@ -1,0 +1,11 @@
+.link {
+  display: block;
+  color: #1d649a;
+  margin-top: .5rem;
+  transition: all 0.3s;
+}
+
+.link:hover {
+  font-weight: bold;
+  letter-spacing: 1px;
+}

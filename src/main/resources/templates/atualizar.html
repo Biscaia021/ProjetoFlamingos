@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/reset.css}">
+
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/pagina/layout-pagina.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/background/background-poligono.css}">
+  
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/container/container-cadastro-consulta.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/container/cabecalho/cabecalho.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/container/cabecalho/cabecalho__titulo.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/container/cabecalho/cabecalho__subtitulo.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/container/cabecalho/cabecalho__tipo-form.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/assets/css/form/layout-form.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/form/link.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/form/input/input.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/form/input/botao.css}">
+
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/auxiliar.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/assets/css/media_queries.css}">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Atualizar</title>
+</head>
+<body class="pagina">
+  <div class="container-consulta">
+    <!-- Cabecalho -->
+    <header class="cabecalho">
+      <h1 class="cabecalho__titulo">Administração</h1>
+      <h3 class="cabecalho__subtitulo">Oque vamos atualizar?</h3>
+      <fieldset class="cabecalho__tipo-form">
+        <label for="pessoas" class="radio-label">
+          <input type="radio" name="tipo-consulta" id="pessoas" checked> Pessoas
+        </label>
+        <label for="alocacoes" class="radio-label">
+          <a th:href="@{/atualizar2}"><input type="radio" name="tipo-consulta" id="alocacoes"> Alocações </a>
+        </label>
+      </fieldset>
+    </header>
+    
+     <!-- Consulta de Pessoas -->
+    <form class="form form-pessoas" th:action="@{/busMorAtt}" method="post">
+      <fieldset>
+        <input type="number" name="id" id="id" class="form__input" placeholder="ID Pessoa" required>
+      </fieldset>
+      <button type="submit" class="form__botao" style="margin: 1em;">Buscar dados</button>
+    </form>
+
+    <!-- Formulário de Atualização -->
+    <form class="form form-atualizarPessoas" th:action="@{/dataupdate}" method="post">
+		<label th:each="id : ${ids}"> 
+		<input type="text" class="form__input" id="nome" th:value="${id.id}" name="id" placeholder="id" readonly>
+		</label>
+      <fieldset th:each="morador : ${moradores}">
+        <input type="text" class="form__input" id="nome" name="nome"  th:value="${morador.nome}"   placeholder="Nome Completo">
+        <input type="text" class="form__input" id="cpf" name="cpf" th:value="${morador.cpf}" maxlength="14" placeholder="CPF" pattern="^(\d{3})[. ]?(\d{3})[. ]?(\d{3})[- ]?(\d{2}$)$">
+        <input type="email" class="form__input" id="email"  name="email" th:value="${morador.email}"  placeholder="Email">
+        <input type="tel" class="form__input" id="telefone"  name="telefone" th:value="${morador.telefone}" maxlength="14" pattern="^(\(?\d{2}\)?)\s?(9\d{4})[-\s]?(\d{4})$" placeholder="Telefone">
+        <input type="date" class="form__input" id="email"  name="inicio" th:value="${morador.inicio}"  placeholder="Email">
+		<input type="date" class="form__input" id="email"  name="termino" th:value="${morador.termino}"  placeholder="Email">  
+		<button class="form__botao" id="botao-atualizar" th:href="@{'/dataupdate' + ${morador != null ? morador.id : ''}}">Atualizar Dados</button>
+      </fieldset>
+    </form>
+    <a th:href="@{/menu}" class="link">Voltar ao menu</a>
+  </div>
+  
+</body>
+</html>

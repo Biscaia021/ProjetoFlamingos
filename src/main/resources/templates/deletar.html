@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br"  xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/reset.css}">
+
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/pagina/layout-pagina.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/background/background-poligono.css}">
+  
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/container/container-cadastro-consulta.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/container/cabecalho/cabecalho.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/container/cabecalho/cabecalho__titulo.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/container/cabecalho/cabecalho__subtitulo.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/container/cabecalho/cabecalho__tipo-form.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/form/layout-form.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/form/link.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/form/input/input.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/form/input/botao.css}">
+
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/resultado/container-resultado.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/resultado/resultado.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/resultado/resultado__titulo.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/resultado/resultado__info.css}">
+
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/auxiliar.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{assets/css/media_queries.css}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remoção</title>
+</head>
+<body class="pagina">
+  <div class="container-consulta">
+    <!-- Cabecalho -->
+    <header class="cabecalho">
+      <h1 class="cabecalho__titulo">Administração</h1>
+      <h3 class="cabecalho__subtitulo">Oque vamos remover?</h3>
+      <fieldset class="cabecalho__tipo-form">
+        <label for="pessoas" class="radio-label">
+          <input type="radio" name="tipo-consulta" id="pessoas" checked> Pessoas
+        </label>
+        <label for="alocacoes" class="radio-label">
+          <input type="radio" name="tipo-consulta" id="alocacoes"> Alocações
+        </label>
+      </fieldset>
+    </header>
+    
+    <!-- Consulta de Pessoas -->
+    <form th:action="@{/buscarMoradorDel}" method="post" class="form form-pessoas">
+      <fieldset>
+        <input type="number" id="idPessoa" name="id" class="form__input" placeholder="ID Pessoa" required>
+      </fieldset>
+      <button type="submit" class="form__botao">Buscar dados</button>
+      <br>
+       <br>
+    </form>
+
+    <!-- Resultado Pessoas -->
+    <div class="container-resultado" id="resultado-pessoas" >
+      <div class="resultado" th:each="morador : ${moradores}">
+		<div style="margin-bottom: 3em;">
+        <h2 class="cabecalho__titulo">Informações </h2>
+         <p class="info-label">
+          Nome: <span class="resultadoinfo" th:text=" ${morador.id}" id="nome"></span>
+        </p>
+         <p class="info-label">
+          Nome: <span class="resultadoinfo" th:text=" ${morador.nome}" id="nome"></span>
+        </p>
+        <p class="info-label">
+          CPF: <span class="resultadoinfo" th:text="${morador.cpf}" id="cpf"></span>
+        </p>
+        <p class="info-label">
+          Email: <span class="resultadoinfo" th:text="${morador.email}" id="email"></span>
+        </p>
+        <p class="info-label">
+          Telefone: <span class="resultadoinfo" th:text="${morador.telefone}" id="telefone"></span>
+        </p>
+        <p class="info-label">
+          Data Início: <span class="resultadoinfo" th:text="${morador.inicio}" id="inicio"></span>
+        </p>
+        <p class="info-label">
+          Data Fim: <span class="resultadoinfo" th:text="${morador.termino}" id="termino"></span>
+        </p>
+        </div>
+        <a class="form__botao" style="text-align: center;" th:href="@{'/delete/' + ${morador != null ? morador.id : ''}}" id="botao-atualizar">Remover</a>
+      </div>
+    </div>
+    
+
+    <!-- Consulta de Alocações -->
+    <form th:action="@{/bsaloc}" method="post" class="form form-alocacoes hidden">
+    <fieldset>
+        <input type="number" id="idAloc" name="id" class="form__input"  placeholder="ID Alocação" required>
+    </fieldset>
+    <button type="submit" class="form__botao">Buscar dados</button>
+     <br>
+      <br>
+	</form>
+
+    <!-- Resultado Alocações -->
+    <div class="container-resultado " id="resultado-alocacoes">
+      <div class="resultado"  th:each="apart : ${aparts}">
+		<div style="margin-bottom: 1em;">
+       	 <p class="info-label">
+        	  Id: <span class="resultado__info" id="id" th:text=" ${apart.id}"></span>
+       	 </p>
+      	  <p class="info-label">
+        	  Proprietário: <span class="resultado__info" id="proprietario" th:text=" ${apart.proprietario}">Fulano da Silva Ribeiro</span>
+        	</p>
+       	 <p class="info-label">
+       	   Bloco: <span class="resultado__info" id="bloco" th:text=" ${apart.bloco}">99</span>
+       	 </p>
+        	<p class="info-label">
+         	 Apartamento: <span class="resultado__info" id="apartamento" th:text=" ${apart.apartamento}">202</span>
+        	</p>
+        	<br>
+       	 <br>
+        </div>
+        <a class="form__botao"  style="text-align: center;" th:href="@{'/deleteAp/' + ${apart != null ? apart.id : ''}}" id="botao-atualizar">Remover</a>
+      </div>
+    </div>
+    <a th:href="@{/menu}" class="link">Voltar ao menu</a>
+  </div>
+  <script type=text/javascript th:src="@{deletar/deletar.js}"></script>
+</body>
+</html>

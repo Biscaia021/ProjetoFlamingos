@@ -1,0 +1,7 @@
+.pagina {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  margin-top: auto;
+  align-items: center;
+}

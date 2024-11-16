@@ -1,0 +1,13 @@
+.form__select-box {
+  width: 80%;
+  border: 2px solid #ccc;
+  padding: .5rem 1rem;
+  border-radius: 1rem;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s;
+}
+
+.form__select-box:focus {
+  border: 2px solid #1d649a;
+}

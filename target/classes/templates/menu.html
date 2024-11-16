@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <link rel="stylesheet" href="../assets/css/auxiliar.css">
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  
+  <link rel="stylesheet" href="../assets/css/pagina/layout-pagina.css">
+  <link rel="stylesheet" href="../assets/css/background/background-ondas.css">
+  <link rel="stylesheet" href="../assets/css/container/container-menu.css">
+  
+  <link rel="stylesheet" href="../assets/css/container/container-menu.css">
+  <link rel="stylesheet" href="../assets/css/container/cabecalho/cabecalho.css">
+  <link rel="stylesheet" href="../assets/css/container/cabecalho/cabecalho__titulo.css">
+  <link rel="stylesheet" href="../assets/css/container/cabecalho/cabecalho__subtitulo.css">
+  <link rel="stylesheet" href="../assets/css/menu/menu.css">
+  <link rel="stylesheet" href="../assets/css/container/container__titulo.css">
+  <link rel="stylesheet" href="../assets/css/menu/menu__item.css">
+
+  <link rel="stylesheet" href="../assets/css/media_queries.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+</head>
+<body class="pagina">
+  <div class="container-menu">
+    <h1 class="container__titulo">Flamingos</h1>
+    <header class="cabecalho">
+      <h2 class="cabecalho__titulo">Olá ADM!</h1>
+      <h3 class="cabecalho__subtitulo">Oque deseja fazer?</h3>
+    </header>
+      <div class="menu">
+        <a th:href="@{/cadastro}" target="_blank" class="menu__item">
+          <img src="../assets/imagens/bx-spreadsheet.svg" alt="icone" class="item-image">
+          <span id="cadastrar">Cadastrar</span>
+        </a>
+        <a th:href="@{/atualizar}" target="_blank" class="menu__item">
+          <img src="../assets/imagens/bxs-edit.svg" alt="icone" class="item-image">
+          <span id="cadastrar">Atualizar</span>
+        </a>
+        <a th:href="@{/deletar}" target="_blank" class="menu__item">
+          <img src="../assets/imagens/bx-x.svg" alt="icone" class="item-image">
+          <span id="cadastrar">Deletar</span>
+        </a>
+        <a th:href="@{/consulta}" target="_blank" class="menu__item">
+          <img src="../assets/imagens/bx-search-alt.svg" alt="icone" class="item-image">
+          <span id="consultar">Consultar</span>
+        </a>
+      </div>
+    </h1>
+  </div>
+</body>
+</html>

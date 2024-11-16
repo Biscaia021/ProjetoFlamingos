@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" th:href="@{assets/css/reset.css}">
+  
+  <link rel="stylesheet" th:href="@{assets/css/pagina/layout-pagina.css}">
+  <link rel="stylesheet" th:href="@{assets/css/background/background-poligono.css}">
+  
+  <link rel="stylesheet" th:href="@{assets/css/container/container-cadastro-consulta.css}">
+  <link rel="stylesheet" th:href="@{assets/css/form/layout-form.css}">
+  <link rel="stylesheet" th:href="@{assets/css/container/cabecalho/cabecalho.css}">
+  <link rel="stylesheet" th:href="@{assets/css/container/cabecalho/cabecalho__titulo.css}">
+  <link rel="stylesheet" th:href="@{assets/css/container/cabecalho/cabecalho__subtitulo.css}">
+  <link rel="stylesheet" th:href="@{assets/css/container/cabecalho/cabecalho__tipo-form.css}">
+  
+  <link rel="stylesheet" th:href="@{assets/css/form/input/select-box.css}">
+  <link rel="stylesheet" th:href="@{assets/css/form/input/input.css}">
+  <link rel="stylesheet" th:href="@{assets/css/form/input/submit-btn.css}">
+  <link rel="stylesheet" th:href="@{assets/css/form/link-menu.css}">
+  
+  <link rel="stylesheet" th:href="@{assets/css/auxiliar.css}">
+  <link rel="stylesheet" th:href="@{assets/css/media_queries.css}">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tela de Cadastro</title>
+</head>
+<body class="pagina">
+  <div class="container-cadastro">
+    <!-- Cabeçalho -->
+    <header class="cabecalho">
+      <h1 class="cabecalho__titulo">Cadastro</h1>
+      <h2 class="cabecalho__subtitulo">Oque vamos cadastrar?</h2>
+      <fieldset class="cabecalho__tipo-form">
+        <label for="pessoas" class="radio-label">
+          <input type="radio" name="tipo-form" id="pessoas" checked> Pessoas
+        </label>
+        <label for="alocacoes" class="radio-label">
+          <input type="radio" name="tipo-form" id="alocacoes"> Alocações
+        </label>
+      </fieldset>
+    </header>
+    
+    <!-- Cadastro de Pessoas-->
+    <form action="cadmorador" method="post" class="form form-pessoas">
+      <fieldset>
+      <input type="text" class="form__input" name="nome" id="nome" placeholder="Nome Completo" required>
+      <input type="text" class="form__input" name="cpf" id="cpf" maxlength="14" placeholder="CPF" pattern="^(\d{3})[. ]?(\d{3})[. ]?(\d{3})[- ]?(\d{2}$)$" required>
+      <input type="email" class="form__input" name="email" id="email" placeholder="Email">
+      <input type="tel" class="form__input" name="telefone" id="telefone" maxlength="14" pattern="^(\(?\d{2}\)?)\s?(9\d{4})[-\s]?(\d{4})$" placeholder="Telefone">
+      <input type="date" class="form__input" id="nome" name="inicio" placeholder="Nome Completo" required>
+      <input type="date" class="form__input" id="nome" name="termino"placeholder="Nome Completo">
+      </fieldset>
+      <button type="submit" class="form__submit-btn">Cadastrar</button>
+      <a href="/menu" class="link-menu">Voltar ao menu</a>
+    </form>
+
+    <!-- Cadastro de Alocações -->
+    <form action="cadapartamento" method="post" class="form form-alocacoes hidden">
+      <fieldset>
+        <input type="text" id="idPessoa" name="proprietario" class="form__input" placeholder="Proprietario" required>
+        <input type="number" id="bloco" name="bloco" class="form__input" min="1" placeholder="Bloco" required>
+        <input type="number" id="apt" name="apartamento" class="form__input" min="1" placeholder="Apartamento" required>
+      </fieldset>
+      <button type="submit" class="form__submit-btn">Cadastrar</button>
+      <a href="/menu" class="link-menu">Voltar ao menu</a>
+    </form>
+  </div>
+  <script type="text/javascript" th:src="@{/cadastro/script.js}"></script>
+</body> 
+</html>
